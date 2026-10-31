@@ -44,17 +44,17 @@ export default function CubbieViewer({ src, onReady, className = "" }: Props) {
           powerPreference: "high-performance",
         });
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        renderer.toneMapping = THREE.ACESFilmicToneMapping;
-        renderer.toneMappingExposure = 0.85;
+        renderer.toneMapping = THREE.NeutralToneMapping;
+        renderer.toneMappingExposure = 0.7;
         mount.appendChild(renderer.domElement);
 
         const scene = new THREE.Scene();
         const pmrem = new THREE.PMREMGenerator(renderer);
         const envTex = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
         scene.environment = envTex;
-        scene.environmentIntensity = 0.55;
+        scene.environmentIntensity = 0.3;
 
-        const key = new THREE.DirectionalLight(0xffffff, 1.6);
+        const key = new THREE.DirectionalLight(0xffffff, 1.1);
         key.position.set(2.5, 3, 3.5);
         scene.add(key);
         const rim = new THREE.DirectionalLight(0xc4f56a, 2.2);
@@ -62,7 +62,7 @@ export default function CubbieViewer({ src, onReady, className = "" }: Props) {
         scene.add(rim);
 
         const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 100);
-        camera.position.set(0, 0.2, 5.1);
+        camera.position.set(0, 0.2, 4.8);
 
         const controls = new OrbitControls(camera, renderer.domElement);
         controls.target.set(0, 0, 0);
@@ -74,7 +74,7 @@ export default function CubbieViewer({ src, onReady, className = "" }: Props) {
         controls.autoRotate = !reduceMotion;
         controls.autoRotateSpeed = 1.4;
         controls.addEventListener("start", () => {
-          controls.autoRotate = false;
+        controls.autoRotate = false;
         });
         // Horizontal drag rotates; vertical swipes still scroll the page on touch screens.
         renderer.domElement.style.cssText = "width:100%;height:100%;display:block;cursor:grab;touch-action:pan-y;";
@@ -161,7 +161,7 @@ export default function CubbieViewer({ src, onReady, className = "" }: Props) {
         });
 
         // Deepen the base color so the model matches the black-and-lime renders.
-        const TONE = 0.5;
+        const TONE = 0.35;
         const seen = new Set<Material>();
         model.traverse((o: Object3D) => {
         const mesh = o as Mesh;
