@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const items = [
   ["Explore", "#sheet"],
@@ -8,15 +8,26 @@ const items = [
 ];
 
 export default function Navbar() {
-  const [hideLinks, setHideLinks] = useState(false);
+const [hideLinks, setHideLinks] = useState(false);
+const hiddenRef = useRef(false);
 
   useEffect(() => {
     let last = window.scrollY;
+    let lockUntil = 0;
     const onScroll = () => {
       const y = window.scrollY;
-      if (Math.abs(y - last) < 8) return;
-      setHideLinks(y > last && y > 120);
+      if (performance.now() < lockUntil) {
+        last = y;
+        return;
+      }
+      if (Math.abs(y - last) < 12) return;
+      const hide = y > last && y > 120;
       last = y;
+      if (hide !== hiddenRef.current) {
+        hiddenRef.current = hide;
+        lockUntil = performance.now() + 450;
+        setHideLinks(hide);
+      }
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
