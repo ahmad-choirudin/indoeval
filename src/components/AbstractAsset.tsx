@@ -19,6 +19,8 @@ export default function AbstractAsset() {
       />
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-bg via-bg/65 to-bg" />
       <div className="absolute inset-0 -z-10 hidden bg-gradient-to-r from-bg/90 via-bg/30 to-transparent lg:block" />
+      <div className="absolute inset-x-0 top-0 -z-10 h-32 bg-gradient-to-b from-bg to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 -z-10 h-32 bg-gradient-to-t from-bg to-transparent" />
 
       <div className="mx-auto flex min-h-[90svh] max-w-[90rem] flex-col justify-between gap-16 px-5 py-20 md:px-10 lg:py-28">
         <div className="rv">
