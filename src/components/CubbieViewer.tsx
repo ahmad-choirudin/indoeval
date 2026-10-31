@@ -62,7 +62,7 @@ export default function CubbieViewer({ src, onReady, className = "" }: Props) {
         scene.add(rim);
 
         const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 100);
-        camera.position.set(0, 0.2, 5.6);
+        camera.position.set(0, 0.2, 5.1);
 
         const controls = new OrbitControls(camera, renderer.domElement);
         controls.target.set(0, 0, 0);
