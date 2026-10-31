@@ -161,7 +161,7 @@ export default function CubbieViewer({ src, onReady, className = "" }: Props) {
         });
 
         // Deepen the base color so the model matches the black-and-lime renders.
-        const TONE = 0.5;
+        const TONE = 0,61;
         const seen = new Set<Material>();
         model.traverse((o: Object3D) => {
         const mesh = o as Mesh;
