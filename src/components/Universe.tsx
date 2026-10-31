@@ -10,7 +10,7 @@ const notes = [
 
 export default function Universe() {
   return (
-    <section id="universe" className="relative isolate overflow-hidden border-y border-edge">
+    <section id="universe" className="relative isolate overflow-hidden">
       <img
         src={`${base}images/characters/universe.jpg`}
         alt="A small Cubbie explorer looks at a glowing green portal in a world of black monoliths"
