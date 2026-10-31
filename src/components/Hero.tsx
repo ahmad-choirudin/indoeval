@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { heroImage } from "../data/characters";
 import CubbieViewer from "./CubbieViewer";
 
 const base = import.meta.env.BASE_URL;
@@ -18,18 +17,21 @@ export default function Hero() {
       className="relative isolate flex flex-col overflow-hidden lg:min-h-[calc(100svh-4.5rem)] lg:justify-end"
     >
       <div className="relative h-[62svh] lg:absolute lg:inset-0 lg:-z-10 lg:h-auto">
-        <img
-          src={heroImage}
-          alt="Cubbie in a black tech jacket with glowing lime details, making a peace sign"
-          width={1376}
-          height={768}
-          className={`h-full w-full object-cover object-[88%_center] transition-opacity duration-700 lg:object-[85%_center] ${ready ? "opacity-0" : "opacity-100"}`}
-        />
-        <div
-          className={`pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_72%_55%,rgba(196,245,106,0.12),transparent_60%)] transition-opacity duration-700 ${ready ? "opacity-100" : "opacity-0"}`}
-        />
-        <div className="pointer-events-none absolute inset-0" style={fade} />
-        <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-bg via-bg/30 to-transparent lg:block" />
+        
+     <img
+     src={`${base}images/characters/hero-bg.png`}
+     alt=""
+     aria-hidden="true"
+     width={1376}
+     height={768}
+     className="absolute inset-0 h-full w-full object-cover opacity-70"
+     />
+    <div
+     className={`pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_72%_55%,rgba(196,245,106,0.12),transparent_60%)] transition-opacity duration-700 ${ready ? "opacity-100" : "opacity-0"}`}
+     />
+    <div className="pointer-events-none absolute inset-0" style={fade} />
+    <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-bg via-bg/30 to-transparent lg:block" />
+          
         <CubbieViewer
           src={`${base}models/cubbie.glb`}
           onReady={() => setReady(true)}
