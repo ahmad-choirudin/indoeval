@@ -160,6 +160,25 @@ export default function CubbieViewer({ src, onReady, className = "" }: Props) {
           }
         });
 
+        // Deepen the base color so the model matches the black-and-lime renders.
+        const TONE = 0.62; // lower = darker
+        const seen = new Set<Material>();
+        model.traverse((o: Object3D) => {
+        const mesh = o as Mesh;
+        if (!mesh.isMesh) return;
+        const mats: Material[] = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
+        mats.forEach((m) => {
+        if (seen.has(m)) return;
+        seen.add(m);
+        const sm = m as MeshStandardMaterial;
+        if (sm.color && sm.map) {
+            sm.color.multiplyScalar(TONE);
+            sm.roughness = Math.max(sm.roughness, 0.5);
+            sm.metalness = Math.min(sm.metalness, 0.2);
+          }
+         });
+        });
+
         // Fit any model to the same frame: height 2, centered, feet on y = -1.
         const box = new THREE.Box3().setFromObject(model);
         const size = box.getSize(new THREE.Vector3());
