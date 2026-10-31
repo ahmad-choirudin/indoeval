@@ -16,7 +16,7 @@ export default function Hero() {
       id="top"
       className="relative isolate flex flex-col overflow-hidden lg:min-h-[calc(100svh-4.5rem)] lg:justify-end"
     >
-      <div className="relative h-[62svh] lg:absolute lg:inset-0 lg:-z-10 lg:h-auto">
+      <div className="relative h-[62svh] overflow-hidden lg:absolute lg:inset-0 lg:-z-10 lg:h-auto">
         
      <img
      src={`${base}images/characters/hero-bg.jpg`}
