@@ -42,7 +42,7 @@ export default function Hero() {
           Cubbie World · Character Universe
         </p>
         <h1
-          className="display rise mt-5 text-[clamp(2.4rem,11vw,4rem)] lg:text-[clamp(3.5rem,6.4vw,7rem)]"
+          className="display rise mt-5 text-[clamp(2.4rem,11vw,4rem)] lg:text-[clamp(2.7rem,min(6.4vw,12svh),7rem]"
           style={{ animationDelay: "0.15s" }}
         >
           <span className="block">A little</span>
