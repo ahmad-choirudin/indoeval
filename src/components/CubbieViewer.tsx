@@ -45,13 +45,14 @@ export default function CubbieViewer({ src, onReady, className = "" }: Props) {
         });
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         renderer.toneMapping = THREE.ACESFilmicToneMapping;
-        renderer.toneMappingExposure = 1.1;
+        renderer.toneMappingExposure = 0.85;
         mount.appendChild(renderer.domElement);
 
         const scene = new THREE.Scene();
         const pmrem = new THREE.PMREMGenerator(renderer);
         const envTex = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
         scene.environment = envTex;
+        scene.environmentIntensity = 0.55;
 
         const key = new THREE.DirectionalLight(0xffffff, 1.6);
         key.position.set(2.5, 3, 3.5);
@@ -61,7 +62,7 @@ export default function CubbieViewer({ src, onReady, className = "" }: Props) {
         scene.add(rim);
 
         const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 100);
-        camera.position.set(0, 0.2, 4.8);
+        camera.position.set(0, 0.2, 5.6);
 
         const controls = new OrbitControls(camera, renderer.domElement);
         controls.target.set(0, 0, 0);
