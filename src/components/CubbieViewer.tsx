@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import type { Material, Mesh, Object3D, Texture } from "three";
+import type { Material, Mesh, MeshStandardMaterial, Object3D, Texture } from "three";
 
 type Props = {
   src: string;
@@ -20,17 +20,20 @@ export default function CubbieViewer({ src, onReady, className = "" }: Props) {
 
     (async () => {
       try {
+        // Skip everything (and never download three.js) if the model file is missing.
         const head = await fetch(src, { method: "HEAD" });
         const type = head.headers.get("content-type") ?? "";
-        const bytes = Number(head.headers.get("content-length") ?? "0");
-        if (!head.ok || type.includes("text/html") || (bytes > 0 && bytes < 1024)) return;
+        if (!head.ok || type.includes("text/html")) return;
 
-        const [THREE, { GLTFLoader }, { OrbitControls }, { RoomEnvironment }] = await Promise.all([
-          import("three"),
-          import("three/examples/jsm/loaders/GLTFLoader.js"),
-          import("three/examples/jsm/controls/OrbitControls.js"),
-          import("three/examples/jsm/environments/RoomEnvironment.js"),
-        ]);
+        const [THREE, { GLTFLoader }, { OrbitControls }, { RoomEnvironment }, { MeshoptDecoder }] =
+          await Promise.all([
+            import("three"),
+            import("three/examples/jsm/loaders/GLTFLoader.js"),
+            import("three/examples/jsm/controls/OrbitControls.js"),
+            import("three/examples/jsm/environments/RoomEnvironment.js"),
+            // @ts-ignore -- decoder for Meshopt-compressed models
+            import("three/examples/jsm/libs/meshopt_decoder.module.js"),
+          ]);
         if (disposed) return;
 
         const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -126,14 +129,37 @@ export default function CubbieViewer({ src, onReady, className = "" }: Props) {
         };
         cleanup = teardown;
 
-        const gltf = await new GLTFLoader().loadAsync(src);
+        const loader = new GLTFLoader();
+        loader.setMeshoptDecoder(MeshoptDecoder);
+        const gltf = await loader.loadAsync(src);
         if (disposed) {
           teardown();
           return;
         }
 
-        // Fit any model to the same frame: height 2, centered, feet on y = -1.
         const model = gltf.scene;
+
+        // A model exported without textures comes out plain white. Give those parts a
+        // dark matte material so they match the Cubbie palette. Textured parts are left alone.
+        let dark: MeshStandardMaterial | null = null;
+        model.traverse((o: Object3D) => {
+          const mesh = o as Mesh;
+          if (!mesh.isMesh) return;
+          const mats: Material[] = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
+          const textured = mats.some((m) => {
+            const sm = m as MeshStandardMaterial;
+            return !!sm.map || !!sm.emissiveMap;
+          });
+          const hasVertexColors = !!mesh.geometry.getAttribute("color");
+          if (!textured && !hasVertexColors) {
+            if (!dark) {
+              dark = new THREE.MeshStandardMaterial({ color: 0x14171a, roughness: 0.5, metalness: 0.15 });
+            }
+            mesh.material = dark;
+          }
+        });
+
+        // Fit any model to the same frame: height 2, centered, feet on y = -1.
         const box = new THREE.Box3().setFromObject(model);
         const size = box.getSize(new THREE.Vector3());
         const center = box.getCenter(new THREE.Vector3());
@@ -147,7 +173,6 @@ export default function CubbieViewer({ src, onReady, className = "" }: Props) {
         readyRef.current?.();
       } catch (err) {
         console.warn("CubbieViewer: could not load the 3D model.", err);
-        cleanup?.();
       }
     })();
 
