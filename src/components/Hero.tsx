@@ -29,17 +29,17 @@ export default function Hero() {
     <div
      className={`pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_72%_55%,rgba(196,245,106,0.12),transparent_60%)] transition-opacity duration-700 ${ready ? "opacity-100" : "opacity-0"}`}
      />
-    <div className="pointer-events-none absolute inset-0" style={fade} />
     <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-bg via-bg/30 to-transparent lg:block" />
           
         <CubbieViewer
           src={`${base}models/cubbie.glb`}
           onReady={() => setReady(true)}
-          className="absolute inset-0 translate-x-[13%] lg:translate-x-0 lg:left-[30%]"
+          className="absolute inset-0 translate-x-[13%] translate-y-[12%] lg:translate-x-0 lg:translate-y-0 lg:left-[42%]"
         />
+        <div className="pointer-events-none absolute inset-0" style={fade} />
       </div>
 
-      <div className="pointer-events-none relative z-10 mx-auto -mt-2 w-full max-w-[90rem] px-5 pb-10 md:px-10 lg:mt-0 lg:pb-14">
+      <div className="pointer-events-none relative z-10 mx-auto -mt-20 w-full max-w-[90rem] px-5 pb-10 md:px-10 lg:mt-0 lg:pb-14">
         <p className="kicker rise text-acc" style={{ animationDelay: "0.05s" }}>
           Cubbie World · Character Universe
         </p>
