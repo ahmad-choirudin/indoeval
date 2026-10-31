@@ -39,7 +39,7 @@ export default function Hero() {
         <div className="pointer-events-none absolute inset-0" style={fade} />
       </div>
 
-      <div className="pointer-events-none relative z-10 mx-auto -mt-24 w-full max-w-[90rem] px-5 pb-10 md:px-10 lg:mt-0 lg:pb-14">
+      <div className="pointer-events-none relative z-10 mx-auto -mt-20 w-full max-w-[90rem] px-5 pb-10 md:px-10 lg:mt-0 lg:pb-14">
         <p className="kicker rise text-acc" style={{ animationDelay: "0.05s" }}>
           Cubbie World · Character Universe
         </p>
