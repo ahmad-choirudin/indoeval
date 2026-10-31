@@ -4,6 +4,7 @@
 
 :root { --ease: cubic-bezier(0.22, 0.61, 0.36, 1); }
 html { scroll-behavior: smooth; scroll-padding-top: 3rem; }
+html { overflow-anchor: none; }
 @media (min-width: 768px) {
   html { scroll-padding-top: 0; }
 }
