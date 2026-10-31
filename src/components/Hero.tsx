@@ -34,7 +34,7 @@ export default function Hero() {
         <CubbieViewer
           src={`${base}models/cubbie.glb`}
           onReady={() => setReady(true)}
-          className="absolute inset-0 translate-x-[13%] translate-y-[12%] lg:translate-x-0 lg:translate-y-0 lg:left-[42%]"
+          className="absolute inset-0 translate-x-[13%] translate-y-[18%] lg:translate-x-0 lg:translate-y-0 lg:left-[42%]"
         />
         <div className="pointer-events-none absolute inset-0" style={fade} />
       </div>
