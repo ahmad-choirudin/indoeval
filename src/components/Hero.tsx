@@ -24,7 +24,7 @@ export default function Hero() {
      aria-hidden="true"
      width={1376}
      height={768}
-     className="absolute inset-0 h-full w-full object-cover opacity-70"
+     className="absolute inset-0 h-full w-full object-cover opacity-40"
      />
     <div
      className={`pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_72%_55%,rgba(196,245,106,0.12),transparent_60%)] transition-opacity duration-700 ${ready ? "opacity-100" : "opacity-0"}`}
