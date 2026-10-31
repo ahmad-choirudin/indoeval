@@ -8,7 +8,7 @@ const parts = [
 
 export default function AbstractAsset() {
   return (
-    <section id="shapes" className="relative isolate scroll-mt-20 overflow-hidden border-y border-edge">
+    <section id="shapes" className="relative isolate scroll-mt-20 overflow-hidden">
       <img
         src={src}
         alt="Dark stone ruins with glowing lime circuit lines and runes, surrounded by green fog"
