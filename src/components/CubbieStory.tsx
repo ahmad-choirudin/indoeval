@@ -4,7 +4,7 @@ const chapters = [
   {
     no: "01",
     title: "The Beginning",
-    image: `${base}images/characters/story-1.jpg`,
+    image: `${base}images/characters/story-1.webp`,
     alt: "A small Cubbie in a long coat stands in a corridor of black monoliths lit by green light",
     quote: "Every universe starts somewhere.",
     text: [

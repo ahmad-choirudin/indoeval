@@ -29,7 +29,7 @@ export const collection: Piece[] = [
     category: "Music",
     label: "Original",
     description: "The rhythm never stops. CUBBIE brings music to life with futuristic headphones and DJ energy.",
-    image: dir + "cubbie-dj.jpg",
+    image: dir + "cubbie-dj.webp",
   },
   {
     id: "fighter",
@@ -37,7 +37,7 @@ export const collection: Piece[] = [
     category: "Martial Arts",
     label: "Original",
     description: "Discipline, strength, and determination. A little warrior with an unstoppable spirit.",
-    image: dir + "cubbie-fighter.jpg",
+    image: dir + "cubbie-fighter.webp",
   },
   {
     id: "coder",
@@ -45,7 +45,7 @@ export const collection: Piece[] = [
     category: "Programming",
     label: "Cyberpunk",
     description: "Turning ideas into code, one line at a time. Built for the digital world.",
-    image: dir + "cubbie-coder.jpg",
+    image: dir + "cubbie-coder.webp",
   },
   {
     id: "web3",
@@ -53,7 +53,7 @@ export const collection: Piece[] = [
     category: "Blockchain",
     label: "Cyberpunk",
     description: "Exploring decentralized worlds, blockchain technology, and the future of Web3.",
-    image: dir + "cubbie-web3.jpg",
+    image: dir + "cubbie-web3.webp",
   },
   {
     id: "ai-trainer",
@@ -61,7 +61,7 @@ export const collection: Piece[] = [
     category: "Artificial Intelligence",
     label: "Cyberpunk",
     description: "Teaching machines to think smarter through data, language, and human intelligence.",
-    image: dir + "cubbie-ai-trainer.jpg",
+    image: dir + "cubbie-ai-trainer.webp",
   },
   {
     id: "skater",
@@ -69,7 +69,7 @@ export const collection: Piece[] = [
     category: "Street Culture",
     label: "Original",
     description: "No rules, just creativity. A streetwear-inspired CUBBIE made for the ride.",
-    image: dir + "cubbie-skater.jpg",
+    image: dir + "cubbie-skater.webp",
   },
   {
     id: "mechanic",
@@ -77,7 +77,7 @@ export const collection: Piece[] = [
     category: "Automotive",
     label: "Original",
     description: "Built to fix, driven to create. A tribute to mechanical skills and automotive passion.",
-    image: dir + "cubbie-mechanic.jpg",
+    image: dir + "cubbie-mechanic.webp",
   },
   {
     id: "community",
@@ -85,7 +85,7 @@ export const collection: Piece[] = [
     category: "Digital Creator",
     label: "Cyberpunk",
     description: "Connecting people, building communities, and creating digital experiences.",
-    image: dir + "cubbie-community.jpg",
+    image: dir + "cubbie-community.webp",
   },
   {
     id: "athlete",
@@ -93,6 +93,6 @@ export const collection: Piece[] = [
     category: "Fitness",
     label: "Original",
     description: "Strength comes from consistency. A fitness-inspired collectible built for progress.",
-    image: dir + "cubbie-athlete.jpg",
+    image: dir + "cubbie-athlete.webp",
   },
 ];

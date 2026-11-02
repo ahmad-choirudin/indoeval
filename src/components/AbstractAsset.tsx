@@ -1,4 +1,4 @@
-const src = `${import.meta.env.BASE_URL}images/characters/abstract.jpg`;
+const src = `${import.meta.env.BASE_URL}images/characters/abstract.webp`;
 
 const parts = [
   ["Circuit lines", "Lime paths that guide the way through the dark."],
@@ -49,7 +49,7 @@ export default function AbstractAsset() {
 
           <a
             href={src}
-            download="cubbie-ancient-circuits.jpg"
+            download="cubbie-ancient-circuits.webp"
             className="kicker mt-8 inline-block border border-white/30 bg-bg/70 px-6 py-4 transition hover:border-acc hover:text-acc active:border-acc"
           >
             Save the asset ↓

@@ -19,7 +19,7 @@ export default function Hero() {
       <div className="relative h-[62svh] overflow-hidden lg:absolute lg:inset-0 lg:-z-10 lg:h-auto">
         
      <img
-     src={`${base}images/characters/hero-bg.jpg`}
+     src={`${base}images/characters/hero-bg.webp`}
      alt=""
      aria-hidden="true"
      width={1376}

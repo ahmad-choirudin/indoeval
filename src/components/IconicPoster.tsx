@@ -34,7 +34,7 @@ export default function IconicPoster() {
           </p>
           <a
             href={poster.image}
-            download="cubbie-iconic-poster.jpg"
+            download="cubbie-iconic-poster.webp"
             className="kicker mt-10 inline-block bg-acc px-6 py-4 text-bg transition hover:bg-ink"
           >
             Save the poster ↓

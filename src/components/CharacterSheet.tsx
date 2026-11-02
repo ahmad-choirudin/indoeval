@@ -4,9 +4,9 @@ import { characters } from "../data/characters";
 const base = import.meta.env.BASE_URL;
 
 const views = [
-  { id: "front", label: "Front", note: "Glowing lime eyes and a quilted vest, facing the camera.", src: `${base}images/characters/front.jpg` },
-  { id: "side", label: "Side", note: "The profile shows the vest shape and the lime wristband.", src: `${base}images/characters/side.jpg` },
-  { id: "back", label: "Back", note: "Layered hair and a clean quilted back.", src: `${base}images/characters/back.jpg` },
+  { id: "front", label: "Front", note: "Glowing lime eyes and a quilted vest, facing the camera.", src: `${base}images/characters/front.webp` },
+  { id: "side", label: "Side", note: "The profile shows the vest shape and the lime wristband.", src: `${base}images/characters/side.webp` },
+  { id: "back", label: "Back", note: "Layered hair and a clean quilted back.", src: `${base}images/characters/back.webp` },
 ];
 
 const items = ["Quilted puffer vest", "Cargo pants", "Lime wristband", "Lime-trimmed sneakers"];

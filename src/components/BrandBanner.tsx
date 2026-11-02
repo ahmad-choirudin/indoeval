@@ -1,6 +1,6 @@
 import { projects, socials } from "../data/projects";
 
-const src = `${import.meta.env.BASE_URL}images/characters/banner.jpg`;
+const src = `${import.meta.env.BASE_URL}images/characters/banner.webp`;
 
 export default function BrandBanner() {
   return (

@@ -1,9 +1,9 @@
 const dir = `${import.meta.env.BASE_URL}images/characters/`;
 
 const crew = [
-  { no: "01", name: "Tech Hoodie", image: "crew-1.jpg", text: "Black hoodie with glowing lime pockets and sneakers that light up." },
-  { no: "02", name: "Utility Jacket", image: "crew-2.jpg", text: "Zip jacket with cargo pockets, a crossbody bag and sturdy boots." },
-  { no: "03", name: "Tactical Vest", image: "crew-3.jpg", text: "Layered vest over a black top, with a smartwatch on the wrist." },
+  { no: "01", name: "Tech Hoodie", image: "crew-1.webp", text: "Black hoodie with glowing lime pockets and sneakers that light up." },
+  { no: "02", name: "Utility Jacket", image: "crew-2.webp", text: "Zip jacket with cargo pockets, a crossbody bag and sturdy boots." },
+  { no: "03", name: "Tactical Vest", image: "crew-3.webp", text: "Layered vest over a black top, with a smartwatch on the wrist." },
 ];
 
 export default function Crew() {
